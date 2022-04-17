@@ -4,8 +4,8 @@ from main.main import main_blueprint
 from loader.loader import loader_blueprint
 
 
-POST_PATH = r'C:\PyProjects\weather_bot\venv\lesson12_project_source_v3-master\posts.json'
-UPLOAD_FOLDER = r'C:\PyProjects\weather_bot\venv\lesson12_project_source_v3-master\uploads\images'
+POST_PATH = 'posts.json'
+UPLOAD_FOLDER = '/uploads/images'
 
 
 app = Flask(__name__)

@@ -1,7 +1,7 @@
 import json
 
 
-POST_PATH = r"C:\PyProjects\weather_bot\venv\lesson12_project_source_v3-master\posts.json"
+POST_PATH = "posts.json"
 
 
 def load_posts():
