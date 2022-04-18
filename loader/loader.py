@@ -25,7 +25,7 @@ def upload():
             'content': content
         })
         uploads_posts(posts)
-        file.save(f'/uploads/images/{filename}')
+        file.save(f'uploads/images/{filename}')
         if filename.split('.')[-1] not in ['png', 'jpg', 'jpeg']:
             logging.info('Файл не изображение')
     except FileNotFoundError:
