@@ -1,6 +1,8 @@
-from flask import Blueprint, request, render_template
-from functions import load_posts, uploads_posts
 import logging
+import os
+from flask import Blueprint, request, render_template, current_app
+from functions import load_posts, uploads_posts
+
 
 logging.basicConfig(encoding='utf-8', level=logging.INFO)
 
@@ -21,7 +23,7 @@ def upload():
         content = request.values['content']
         posts = load_posts()
         posts.append({
-            'pic': f'/uploads/images/{filename}',
+            'pic': os.path.join(current_app.config['UPLOAD_FOLDER'], filename),
             'content': content
         })
         uploads_posts(posts)
@@ -32,5 +34,5 @@ def upload():
         logging.error('Ошибка при загрузке файла')
         return '<h1> Файл не найден! </h1>'
     else:
-        return render_template('post_uploaded.html', pic=f'/uploads/images/{filename}', content=content)
+        return render_template('post_uploaded.html', pic=os.path.join(current_app.config['UPLOAD_FOLDER'], filename), content=content)
 
