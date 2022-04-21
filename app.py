@@ -11,7 +11,7 @@ UPLOAD_FOLDER = '/uploads/images'
 app = Flask(__name__)
 app.register_blueprint(main_blueprint)
 app.register_blueprint(loader_blueprint)
-app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), '/uploads/images')
+app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads', 'images')
 
 
 @app.route("/uploads/<path:path>")
@@ -19,4 +19,5 @@ def static_dir(path):
     return send_from_directory("uploads", path)
 
 
+print(os.getcwd())
 app.run(debug=True)

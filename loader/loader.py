@@ -27,7 +27,7 @@ def upload():
             'content': content
         })
         uploads_posts(posts)
-        file.save(fr'weather_bot\venv\lesson12_project_source_v3-master\uploads\images\{filename}')
+        file.save(f'weather_bot/venv/lesson12_project_source_v3-master/uploads/images/{filename}')
         if filename.split('.')[-1] not in ['png', 'jpg', 'jpeg']:
             logging.info('Файл не изображение')
     except FileNotFoundError:
